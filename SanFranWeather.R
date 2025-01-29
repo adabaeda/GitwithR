@@ -4,6 +4,17 @@
 #                     Session 7: CA-SF Data
 #====================================================================
 
+colnames(sfweather)
+sfweather %>%
+  mutate(year = year(date)) %>%
+  group_by(year) %>%
+  filter(year != 1925 & year != 2024) %>%
+  summarise(yearly_precip = sum(total_precip_mm, na.rm = TRUE),
+            t_mean_f = mean(t_max_f, na.rm = TRUE)) %>%
+  ggplot(aes(x=t_mean_f, y=yearly_precip, color=year))+
+  geom_point()
+
+
 
 library(lubridate)
 library(tidyverse)
