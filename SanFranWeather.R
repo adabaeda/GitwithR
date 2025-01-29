@@ -12,7 +12,7 @@ library(maps)
 setwd("~/R/R_Practice")
 
 
-
+#=================  variable naming - sfweather  ============================
 
 
 
